@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+
+}
+
+header {
+    background-color:black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    margin: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.product-list, .cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    min-height: 350px; /* Ensure enough height for all content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; 
+    max-height: 150px; 
+}
+
+
+.cart-items .cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-total {
+    margin-top: 20px;
+    text-align: right;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color:black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+}
+
+</style>
+<body img background="https://as1.ftcdn.net/v2/jpg/01/57/12/12/1000_F_157121207_1mSBJ1BsKgyXqYxZUd6l6ZGRk9bSUvoL.jpg">
+    <header>
+        <h1>My Online Store</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Products</a></li>
+                <li><a href="cart.html">Shopping Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Product Listing -->
+        <section id="products">
+            <h2>Products</h2>
+            <div class="product-list"></div>
+        </section>
+
+       
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;  My Online Store</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+<script>// Sample product data (Array of objects)
+    const products = [
+        { id: 1, name: "T-Shirts", price: 250, image: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/24585848/2024/3/7/07e92e7d-2dc5-482a-99ee-b0ca07fb30fc1709804562647BewakoofGraphicPrintedOversizedPureCottonT-shirt1.jpg" },
+        { id: 2, name: "Skirts", price: 350, image: "https://m.media-amazon.com/images/I/51pYDdB7P+L._AC_UY1100_.jpg" },
+        { id: 3, name: "Jeans", price: 450, image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/jean/i/t/6/26-fk-j1bst-sky-perfect-fashion-original-imagrwhygzzhh7sk.jpeg?q=90&crop=false" },
+        { id: 4, name: "Shorts", price: 150, image: "https://assets.ajio.com/medias/sys_master/root/20201020/aNVM/5f8eded0aeb269d563e6755e/-1117Wx1400H-441067404-mediumblue-MODEL.jpg" },
+        { id: 5, name: "Heels", price: 280, image: "https://assets.ajio.com/medias/sys_master/root/20230811/84eC/64d661f8a9b42d15c9a615a9/-473Wx593H-466449498-black-MODEL.jpg" },
+        { id: 6, name: "Shoes", price:300, image:"https://img.etimg.com/thumb/width-1200,height-900,imgsize-68424,resizemode-75,msid-95149641/top-trending-products/lifestyle/best-selling-shoes-for-women-from-adidas-bata-campus-and-skechers.jpg" },
+        { id: 7, name: "Night suit", price: 350, image: "https://skkinvalue.com/cdn/shop/products/SVSK-12-045862copy.jpg?v=1687352219" },
+        { id: 2, name: "Old money", price: 500, image: "https://d1fufvy4xao6k9.cloudfront.net/images/blog/posts/2023/10/hockerty_man_in_a_posh_polo_shirt_beige_outfit_in_front_of_a_lu_26e738f1_1604_4ca4_9a20_63a68575ac6f__1_.jpg" },
+        { id: 2, name: "Pendant", price: 150, image: "https://images-static.nykaa.com/media/catalog/product/3/a/3aa41bbct-nck-44089_1.jpg?tr=w-500" },
+        { id: 2, name: "Bracelet", price: 200, image: "https://m.media-amazon.com/images/I/71RzYyzhsoL._AC_UY1100_.jpg" },
+    ];
+    
+    let cart = [];
+    
+    // Function to display products
+    function displayProducts() {
+        const productContainer = document.querySelector('.product-list');
+        productContainer.innerHTML = '';
+    
+        products.forEach(product => {
+            const productElement = `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                </div>
+            `;
+            productContainer.innerHTML += productElement;
+        });
+    }
+    
+    // Function to add products to the cart
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        cart.push(product);
+        displayCart();
+    }
+    
+    // Function to display cart items
+    function displayCart() {
+        const cartContainer = document.querySelector('.cart-items');
+        cartContainer.innerHTML = '';
+    
+        let total = 0;
+    
+        cart.forEach((item, index) => {
+            total += item.price;
+            const cartItem = `
+                <div class="cart-item">
+                    <span>${item.name} - $${item.price.toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>
+            `;
+            cartContainer.innerHTML += cartItem;
+        });
+    
+        document.getElementById('total').innerText = total.toFixed(2);
+    }
+    
+    // Function to remove items from the cart
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        displayCart();
+    }
+    
+    // Initial display of products
+    displayProducts();
+    </script>
+</html>
